@@ -18,8 +18,12 @@
 <div class="mx-auto" style="width: 65%;">
   <h2 class="font-weight-normal">Log in to your account</h2>
 
-  <form id="theForm" action="../actions/contact_actions.php" method="POST">
-
+  <form id="theForm" action="loginprocess.php" method="POST">
+    <?php 
+      if(isset($_GET["error"])) {
+        echo "<span class='badge badge-pill badge-danger'>$_GET[error]</span>"; 
+      }
+    ?>
     
     <div class="form-group">
       <label for="fullName">Email</label>
@@ -32,7 +36,7 @@
       <input type="password" name="pass" class="form-control" id="password" placeholder="Your password" required>
     </div>
     
-    <input type="submit" name="new_contact" value="Submit" class="btn btn-primary"></button>
+    <input type="submit" name="user_login" value="Submit" class="btn btn-primary"></button>
   </form>
 </div>
 

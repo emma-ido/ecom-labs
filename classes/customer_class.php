@@ -18,10 +18,25 @@ class customer extends db_connection {
 		$this->db_query($sql);
 
 		if($this->db_count() == 0) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
+	}
+
+	function login($email, $password) {
+		if(!$this->emailExists($email)) {
+			return false;
+		} else {
+			$customerFromDb = $this->getCustomerByEmail($email);
+			
+			return array(password_verify($password, $customerFromDb["customer_pass"]), $customerFromDb["customer_id"], $customerFromDb["user_role"]);
+		}
+	}
+
+	function getCustomerByEmail($email) {
+		$sql = "SELECT * FROM customer WHERE customer_email = '$email'";
+		return $this->db_fetch_one($sql);
 	}
 
 	function deleteCustomer() {
