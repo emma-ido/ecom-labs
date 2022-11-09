@@ -12,8 +12,13 @@ if(isset($_POST["new_customer"])) {
 	$country = $_POST["country"];
 	$city = $_POST["city"];
 	$contact = $_POST["contact"];
-
-	echo addCustomer($name, $email, $pass, $country, $city, $contact);
+	$role = $_POST["user_role"];
+	
+	if($role !== '1' && $role !== '2') {
+		$role = 2;
+	}
+	
+	echo addCustomer($name, $email, $pass, $country, $city, $contact, $role);
 }
 
 

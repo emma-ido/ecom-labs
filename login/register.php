@@ -1,3 +1,4 @@
+<?php include_once("../settings/core.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,8 @@
   
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../js/validate_form.js"></script>
+
+<?php include_once("../settings/navbar.php"); ?>
 
 <br>
 
@@ -69,13 +68,22 @@
       <input type="text" name="contact" class="form-control" id="contact" placeholder="Phone Number" required>
     </div>
 
+    <div class="form-group">
+      <label for="user_role">User Role</label>
+      <select class="custom-select" name="user_role" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <option value=1>Administrator</option>
+        <option value=2>Customer</option>
+      </select>
+    </div>
+
     <input type="hidden" name="new_customer" value="new_customer">
     
     <input type="button" name="new_account" onclick="validateRegister()" value="Submit" class="btn btn-primary"></input>
   </form>
 </div>
 
-
+<br><br><br>
 
 </body>
 </html>

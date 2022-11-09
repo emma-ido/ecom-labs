@@ -10,6 +10,7 @@ if(isset($_POST["user_login"])) {
 	$login = customerLogin($email, $password);
 	if($login[0]) {
 		
+		$_SESSION['active'] = true;
 		$_SESSION['customer_id'] = $login[1];
 		$_SESSION['user_role'] = $login[2];
 		header("location: ../index.php?success=Login Successful");

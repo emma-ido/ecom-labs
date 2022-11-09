@@ -4,8 +4,8 @@ include_once("../settings/db_class.php");
 
 class customer extends db_connection {
 
-	function addCustomer($name, $email, $pass, $country, $city, $contact) {
-		$sql = "INSERT INTO customer(customer_name, customer_email, customer_pass, customer_country, customer_city, customer_contact, user_role) VALUES ('$name', '$email', '$pass', '$country', '$city', '$contact', 2)";
+	function addCustomer($name, $email, $pass, $country, $city, $contact, $role=2) {
+		$sql = "INSERT INTO customer(customer_name, customer_email, customer_pass, customer_country, customer_city, customer_contact, user_role) VALUES ('$name', '$email', '$pass', '$country', '$city', '$contact', $role)";
 		return $this->db_query($sql);
 	}
 

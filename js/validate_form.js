@@ -80,3 +80,37 @@ function validateRegister() {
 	// console.log(email);
 	return;
 }
+
+function validateBrandName() {
+	
+	var brandName = $('#brandName').val();
+	var brandNameError = $('#brandNameError');
+
+	if(brandName.length < 2 || brandName.length > 100) {
+		brandNameError.html("Enter a brand name between 2 and 100 characters")
+		brandNameError.css("display", "inline-block");
+		return;
+	} else {
+		brandNameError.css("display", "none");
+	}
+
+	$('#brandForm').submit();
+	return;
+}
+
+function validateCategoryName() {
+	var catName = $('#catName').val();
+	var catNameError = $('#catNameError');
+
+	if(catName.length < 2 || catName.length > 100) {
+		catNameError.html("Enter a category name between 2 and 100 characters")
+		catNameError.css("display", "inline-block");
+		return;
+	} else {
+		catNameError.css("display", "none");
+	}
+
+	$('#catForm').submit();
+	return;	
+}
+
