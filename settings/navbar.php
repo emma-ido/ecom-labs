@@ -22,6 +22,7 @@
         } else {
           $cart_count = get_cart_count(getUserId());
           echo '<a class="nav-item nav-link" href="../view/add_product_form.php">Add Product</a>';
+          echo '<a class="nav-item nav-link" href="../view/all_product.php">All Products</a>';
           echo "<a class='nav-item nav-link' href='../view/cart.php'>Cart ($cart_count)</a>";
           echo '<a class="nav-item nav-link" href="../logout.php">Logout</a>';
         }

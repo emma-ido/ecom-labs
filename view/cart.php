@@ -71,6 +71,8 @@ include_once("../actions/product_functions.php");
 		  	<?php echo "<span>Total items ($total_quantity)</span>"; ?>
 		  	<hr>
 		  	<?php echo "<span>Subtotal: <span class='font-weight-bold'>GHC $total_price</span></span>"; ?>
+		  	<br>
+		  	<a class="btn btn-primary" role="button" href="all_product.php">Continue Shopping</a>
 		</div>
 	  
 	  </div>
