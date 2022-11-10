@@ -24,7 +24,7 @@ if(isset($_POST["add_product"])) {
 	}
 
 	if(addProduct($product_cat, $product_brand, $product_title, $product_price, $product_desc, $product_image, $product_keywords)) {
-		header("Location: ../index.php");
+		header("Location: ../view/all_product.php");
 	} else {
 		header("../view/add_product_form.php?error=Error adding new product");
 	}

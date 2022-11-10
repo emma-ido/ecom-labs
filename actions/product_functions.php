@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once("../settings/core.php");
 include_once("../controllers/product_controller.php");
 
 
@@ -19,6 +20,7 @@ function getProducts($start=0, $end=0, $like="") {
 	$i = 0;
 	$html = $html. "<div class='row'>";
 	$status = "open";
+	$customer_id = getUserId();
 	foreach($products as $product) {
 		$product_image = $product["product_image"];
 		$product_title = $product["product_title"];
@@ -35,7 +37,7 @@ function getProducts($start=0, $end=0, $like="") {
 					    <div class='card'>
 					    	<a href='single_product.php?id=$product_id'><img class='card-img-top' style='min-width:150px; min-height:160px;' src='$product_image' alt='Card image cap'></a>
 						  <div class='card-body'>
-						    <a href='single_product.php?id=$product_id' style='text-decoration: none;'>$product_title</a><br><span class='font-weight-bold'>GHC $product_price</span><br><a class='btn btn-primary' href='#' role='button'href='#'>Add to cart</a>
+						    <a href='single_product.php?id=$product_id' style='text-decoration: none;'>$product_title</a><br><span class='font-weight-bold'>GHC $product_price</span><br><a class='btn btn-primary font-weight-bold' onclick='addToCart($product_id, $customer_id)' role='button' href='#'>Add to cart</a>
 						  </div>
 						</div>
 				

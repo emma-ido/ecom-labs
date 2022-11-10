@@ -38,16 +38,14 @@ if(isset($_GET["id"])) {
 
 	    <div class="form-group">
 	      <label for="product_cat">Category</label>
-	      <select class="custom-select" name="product_cat" id="product_cat">
-	      	<option selected>Choose Category...</option>
+	      <select class="custom-select" name="product_cat" id="product_cat" required>
 	      	<?php getCategoryOptions(); ?>
 	      </select>
 	    </div>
 
 	    <div class="form-group">
 	      <label for="product_brand">Brand</label>
-	      <select class="custom-select" name="product_brand" id="product_brand">
-	      	<option selected>Choose Brand...</option>
+	      <select class="custom-select" name="product_brand" id="product_brand" required>
 	      	<?php getBrandOptions(); ?>
 	      </select>
 	    </div>
@@ -70,7 +68,7 @@ if(isset($_GET["id"])) {
 
 	    <div class="form-group">
 	      <label for="product_image">Image</label>
-	      <?php echo "<input type='file' name='product_image' class='form-control' id='product_image'>"; ?>
+	      <?php echo "<input type='file' name='product_image' accept='image/*' class='form-control' id='product_image'>"; ?>
 	    </div>
 	    <?php echo "<input type='hidden' name='original_product_image' value='$product_image' class='form-control'>"; ?>
 	    <div class="form-group">

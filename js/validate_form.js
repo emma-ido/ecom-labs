@@ -1,8 +1,3 @@
-
-
-
-
-
 function validateRegister() {
 	var name = $('#name').val();
 	var email = $('#email').val();
@@ -114,3 +109,14 @@ function validateCategoryName() {
 	return;	
 }
 
+/**
+ *  Use jQuery post to add a product to cart
+ *  Notify user id add was successful or not
+ * */
+function addToCart(product_id, customer_id) {
+	$.post("../actions/add_to_cart.php", {product_id: product_id, customer_id: customer_id, add_to_cart: "yes"}, 
+		function(data) {
+			alert(data);
+		}
+	);
+}

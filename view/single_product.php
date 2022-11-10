@@ -16,6 +16,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 	$product_cat = getCategory($product["product_cat"]);
 	$product_desc = $product["product_desc"];
 	$product_keywords = $product["product_keywords"];
+	$customer_id = getUserId();
 } else {
 	header("Location: all_product.php");
 }
@@ -27,8 +28,10 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Products</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+	<script type="text/javascript" src="../js/validate_form.js"></script>
 <?php include_once('../settings/navbar.php'); ?>
 <br>
 
@@ -53,7 +56,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 			  		<p><span class='font-weight-bold'>Category:</span> $product_cat</p>
 			  		<p><span class='font-weight-bold'>Description</span><br> $product_desc</p>
 			  		<p><span class='font-weight-bold'>Keywords</span>: $product_keywords</p>
-			  		<a class='btn btn-primary btn-lg btn-block' href='#' role='button'>Add to cart</a>";
+			  		<a class='btn btn-primary btn-lg btn-block' onclick='addToCart($product_id, $customer_id)' href='#' role='button'>Add to cart</a>";
 			  		?>
 			  	</div>
 			  </div>
