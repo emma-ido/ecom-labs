@@ -17,7 +17,7 @@ include_once("../actions/product_functions.php");
 
 	<div class="mx-auto" style="width: 65%;">
 		<a class="btn btn-primary" role="button" href="../view/all_product.php">View All Products</a>
-	  <span style="color: red;">Scroll down to edit images</span>
+	  <span style="color: red;">Scroll down to edit products</span>
 	  <h2 class="font-weight-normal">Add new product</h2>
 
 	  <form id="theForm" action="../actions/add_product.php" method="POST" enctype="multipart/form-data">
