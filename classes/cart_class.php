@@ -50,6 +50,10 @@ class cart extends db_connection {
 		return $this->db_query($sql);
 	}
 
+	function remove_from_cart_ip($product_id, $customer_ip) {
+		$sql = "DELETE FROM cart WHERE p_id=$product_id AND ip_add='$customer_ip'";
+		return $this->db_query($sql);
+	}
 
 	function get_products_from_cart($customer_id) {
 		$sql = "SELECT p_id, qty FROM cart WHERE c_id=$customer_id";
@@ -59,6 +63,16 @@ class cart extends db_connection {
 	function get_products_from_cart_ip($customer_ip) {
 		$sql = "SELECT p_id, qty FROM cart WHERE ip_add='$customer_ip'";
 		return $this->db_fetch_all($sql);
+	}
+
+	function update_cart($product_id, $customer_id, $new_qty) {
+		$sql = "UPDATE cart SET qty=$new_qty WHERE p_id=$product_id AND c_id=$customer_id";
+		return $this->db_query($sql);
+	}
+
+	function update_cart_ip($product_id, $customer_ip, $new_qty) {
+		$sql = "UPDATE cart SET qty=$new_qty WHERE p_id=$product_id AND ip_add='$customer_ip'";
+		return $this->db_query($sql);
 	}
 }
 

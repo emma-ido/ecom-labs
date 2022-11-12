@@ -10,8 +10,10 @@ include_once("../actions/product_functions.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cart</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+	<script type="text/javascript" src="../js/validate_form.js"></script>
 <?php include_once("../settings/navbar.php"); ?>
 <br>
 
@@ -32,6 +34,7 @@ include_once("../actions/product_functions.php");
 
 			$total_price = 0;
 			$total_quantity = 0;
+			$i = 0;
 			foreach ($cart_products as $cart_product) {
 				$product_id = $cart_product["p_id"];
 				$quantity = $cart_product["qty"];
@@ -45,7 +48,9 @@ include_once("../actions/product_functions.php");
 				// $product_cat = getCategory($product["product_cat"]);
 				// $product_desc = $product["product_desc"];
 				// $product_keywords = $product["product_keywords"];
-
+				
+				$remove_button = "";
+				
 				echo "
 			  		<hr>
 			  		<div class='row'>
@@ -55,10 +60,21 @@ include_once("../actions/product_functions.php");
 			  			<div class='col-5'>$product_title<br>
 			  				<span>Price: <span class='font-weight-bold'>GHC $product_price</span></span><br>
 			  				<span>Qty: $quantity</span><br>
-			  				<a class='btn btn-primary' href='#' role='button'>Manage Qty</a>
-			  				<a class='btn btn-danger' href='#' role='button'>Remove</a>
+			  				
+			  				<form id='new_qty_form$i' action='../actions/manage_quantity_cart.php' method='POST' class='form-inline' style='display: none;'>
+			  				<div class='form-group'>
+			  				<input type='hidden' name='product_id' value='$product_id'>
+			  				<input type='hidden' name='customer_id' value='$customer_id'>
+			  				<input type='hidden' name='manage_quantity_cart' value='YES'>
+			  				<input id='newQty' name='new_qty' class='form-control mb-2 mr-sm-2' type='number' min=1 max=100 step=1 value=$quantity>
+			  				</div>
+			  				</form>
+
+			  				<a class='btn btn-primary' href='#' onclick=toggleForm($i) role='button'>Manage Qty</a>
+<a class='btn btn-danger' href='#' onclick='removeFromCart($product_id, $customer_id);' role='button'>Remove</a>
 			  			</div>
 			  		</div>";
+			  		$i++;
 			}
 			
 		?>
@@ -79,6 +95,6 @@ include_once("../actions/product_functions.php");
 	</div>
 </div>
 
-
+<br>
 </body>
 </html>

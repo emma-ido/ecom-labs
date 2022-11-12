@@ -120,3 +120,32 @@ function addToCart(product_id, customer_id) {
 		}
 	);
 }
+
+function removeFromCart(product_id, customer_id) {
+	$.post("../actions/remove_from_cart.php", {product_id: product_id, customer_id: customer_id, remove_from_cart: "ID"}, 
+		function(data) {
+			console.log(data);
+			if(data === "YES") {
+				location.reload();
+			} else {
+				alert("Unable to remove from cart");
+			}
+		}
+	);
+}
+
+function removeFromCartIp(product_id, customer_ip) {
+	$.post("../actions/remove_from_cart.php", {product_id: product_id, customer_ip: customer_ip, remove_from_cart: "IP"}, 
+		function(data) {
+			if(data === "YES") {
+				location.reload();
+			} else {
+				alert("Unable to remove from cart");
+			}
+		}
+	);
+}
+
+function toggleForm(id) {
+	$('#' + "new_qty_form" + id).toggle();
+}
