@@ -88,7 +88,19 @@ include_once("../actions/product_functions.php");
 		  	<hr>
 		  	<?php echo "<span>Subtotal: <span class='font-weight-bold'>GHC $total_price</span></span>"; ?>
 		  	<br>
-		  	<a class="btn btn-primary" role="button" href="all_product.php">Continue Shopping</a>
+		  	<div class="form-group">
+		  		<a class="btn btn-primary form-control" role="button" href="all_product.php">Continue Shopping</a>
+		  	</div>
+		  	<div class="form-group">
+		  		<?php
+		  		if($total_price == 0) {
+		  			echo "<a class='btn btn-success form-control' href='#' role='button'>Proceed to Payment</a>";
+		  		} else {
+		  			echo "<a class='btn btn-success form-control' href='payment.php' role='button'>Proceed to Payment</a>";
+		  		}
+		  		?>
+		  		
+		  	</div>
 		</div>
 	  
 	  </div>

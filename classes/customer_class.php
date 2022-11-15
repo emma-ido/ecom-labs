@@ -39,6 +39,11 @@ class customer extends db_connection {
 		return $this->db_fetch_one($sql);
 	}
 
+	function getEmailFromId($customer_id) {
+		$sql = "SELECT customer_email FROM customer WHERE customer_id=$customer_id";
+		return $this->db_fetch_one($sql)["customer_email"];
+	}
+
 	function deleteCustomer() {
 
 	}

@@ -20,6 +20,11 @@ function addCustomer($name, $email, $pass, $country, $city, $contact, $role) {
 }
 
 
+function getEmailFromId($customer_id) {
+	$customer = new customer();
+	return $customer->getEmailFromId($customer_id);
+}
+
 function customerLogin($email, $password) {
 	$customer = new customer();
 	return $customer->login($email, $password);

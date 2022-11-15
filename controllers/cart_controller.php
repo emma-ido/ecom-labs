@@ -48,4 +48,29 @@ function get_products_from_cart_with_ip($customer_ip) {
 	return $cart->get_products_from_cart_ip($customer_ip);	
 }
 
+
+function insert_order($customer_id, $invoice_no, $order_date, $order_status) {
+	$cart = new cart();
+	return $cart->insert_order($customer_id, $invoice_no, $order_date, $order_status);
+}
+
+function select_order($customer_id, $invoice_no) {
+	$cart = new cart();
+	return $cart->select_order($customer_id, $invoice_no);
+}
+
+function empty_cart($customer_id) {
+	$cart = new cart();
+	return $cart->empty_cart($customer_id);
+}
+
+function insert_payment($amount, $customer_id, $order_id, $currency, $payment_date) {
+	$cart = new cart();
+	return $cart->insert_payment($amount, $customer_id, $order_id, $currency, $payment_date);
+}
+
+function insert_order_details($order_id, $product_id, $quantity) {
+	$cart = new cart();
+	return $cart->insert_order_details($order_id, $product_id, $quantity);
+}
 ?>
